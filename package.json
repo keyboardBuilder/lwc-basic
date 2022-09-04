@@ -1,0 +1,7 @@
+{
+  "name": "@wcd/keyboardbuilder.lwc-l7nodk11",
+  "version": "0.0.0",
+  "scripts": {
+    "serve": "npx wcd-cli@latest serve RMqG5owpZDkNqnVu3Bud --open"
+  }
+}
