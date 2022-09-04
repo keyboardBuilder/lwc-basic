@@ -1,12 +1,15 @@
-h1 {
-    color: rgb(0, 112, 210);
+div input[readonly] {
+    padding-left: 1.75rem !important;  
 }
-p {
-    font-family: 'Salesforce Sans', Arial, sans-serif;
-    color: rgb(62, 62, 60);
+.slds-input{
+    padding-left: 1.75rem !important;
 }
-.app {
-    background-color: #fafaf9;
-    height: 100vh;
-    overflow: scroll;
+
+.slds-input-has-icon .slds-input__icon {
+    top: 56% !important;
+}
+.slds-icon_small, .slds-icon--small {
+    width: 1.5rem;
+    height: 1.5rem;
+    line-height: 2;
 }
