@@ -47,19 +47,9 @@
 									<template for:each={searchRecords} for:item="serecord">
 										<li role="presentation" class="slds-listbox__item" key={serecord.recId}>
 
-											<div data-id={serecord.recId} data-name={serecord.recName} onclick={setSelectedRecord}
-												class="slds-media slds-listbox__option slds-listbox__option_entity slds-listbox__option_has-meta"
-												role="option">
-												<span class="slds-media__figure">
-                                                    <span class="slds-icon_container slds-icon-standard-account">
-                                                        <lightning-icon icon-name={iconName} class="slds-icon slds-icon slds-icon_small slds-icon-text-default" size="x-small"></lightning-icon>
-                                                    </span>
-												</span>
-												<span class="slds-media__body">
-                                                    <span class="slds-listbox__option-text slds-listbox__option-text_entity">{serecord.recName}</span>
-												<span class="slds-listbox__option-meta slds-listbox__option-meta_entity">{objectName} • {serecord.recName}</span>
-												</span>
-											</div>
+											<c-child label="hey there" record={serecord} object_name={objectName}
+												set_selected_record={setSelectedRecord}>
+											</c-child>
 										</li>
 									</template>
 								</ul>

@@ -2,4 +2,20 @@
 	<div class="slds-m-horizontal_xx-small slds-m-bottom_x-small">
 		<slot name="icon"></slot> <span class="slds-p-left_small">{label}</span>
 	</div>
+
+
+
+	<div data-id={record.recId} data-name={record.recName} onclick={set_selected_record}
+		class="slds-media slds-listbox__option slds-listbox__option_entity slds-listbox__option_has-meta" role="option">
+		<span class="slds-media__figure">
+                                <span class="slds-icon_container slds-icon-standard-account">
+                                    <lightning-icon icon-name={iconName} class="slds-icon slds-icon slds-icon_small slds-icon-text-default" size="x-small"></lightning-icon>
+                                </span>
+		</span>
+		<span class="slds-media__body">
+                                <span class="slds-listbox__option-text slds-listbox__option-text_entity">{record.recName}</span>
+		<span class="slds-listbox__option-meta slds-listbox__option-meta_entity">{object_name} • {record.recName}</span>
+		</span>
+	</div>
+
 </template>
