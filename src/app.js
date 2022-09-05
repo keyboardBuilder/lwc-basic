@@ -1,6 +1,7 @@
 
 import { LightningElement,wire,api,track } from 'lwc';
-// import getResults from '@salesforce/apex/lwcCustomLookupController.getResults';
+
+
 
 export default class LwcCustomLookup extends LightningElement {
     @api objectName = 'Account';
@@ -41,40 +42,11 @@ export default class LwcCustomLookup extends LightningElement {
             this.clearIconFlag = false;
             this.searchNumber++;
         },1000);
-
-        /*
-        getResults({ ObjectName: this.objectName, fieldName: this.fieldName, value: currentText  })
-        .then(result => {
-            this.searchRecords= result;
-            this.LoadingText = false;
-            
-            this.txtclassname =  result.length > 0 ? 'slds-combobox slds-dropdown-trigger slds-dropdown-trigger_click slds-is-open' : 'slds-combobox slds-dropdown-trigger slds-dropdown-trigger_click';
-            if(currentText.length > 0 && result.length == 0) {
-                this.messageFlag = true;
-            }
-            else {
-                this.messageFlag = false;
-            }
-
-            if(this.selectRecordId != null && this.selectRecordId.length > 0) {
-                this.iconFlag = false;
-                this.clearIconFlag = true;
-            }
-            else {
-                this.iconFlag = true;
-                this.clearIconFlag = false;
-            }
-        })
-        .catch(error => {
-            console.log('-------error-------------'+error);
-            console.log(error);
-        });
-        */
     }
     
    setSelectedRecord(event) {
-        console.log('hey, looks like ', event.currentTarget.dataset.name, ' was clicked');
-        console.log('the dataset: ', event.currentTarget.dataset);
+        console.log('app->setSelectedRecord: the name: ', event.currentTarget.dataset.name, ' the Id: ', event.currentTarget.dataset.Id, ' the random: ', event.currentTarget.dataset.random, '  current target:', event.currentTarget);
+
         var currentRecId = event.currentTarget.dataset.id;
         var selectName = event.currentTarget.dataset.name;
         this.txtclassname =  'slds-combobox slds-dropdown-trigger slds-dropdown-trigger_click';
@@ -83,13 +55,17 @@ export default class LwcCustomLookup extends LightningElement {
         this.selectRecordName = event.currentTarget.dataset.name;
         this.selectRecordId = currentRecId;
         this.inputReadOnly = true;
+
+
         const selectedEvent = new CustomEvent('selected', { detail: {selectName, currentRecId}, });
         // Dispatches the event.
         this.dispatchEvent(selectedEvent);
+
+        this.resetData(event);
     }
     
     resetData(event) {
-        this.selectRecordName = "";
+        // this.selectRecordName = "";
         this.selectRecordId = "";
         this.inputReadOnly = false;
         this.iconFlag = true;

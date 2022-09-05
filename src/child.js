@@ -10,8 +10,6 @@ export default class Child extends LightningElement {
   record={};
   @api
   object_name="";
-  @api
-  set_selected_record;
 
   iconName = 'action:new_account'
 
