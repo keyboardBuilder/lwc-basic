@@ -34,9 +34,11 @@
                                     </span>
 								</div>
 								<div if:true={clearIconFlag}>
-									<button class="slds-input__icon slds-input__icon_right slds-button slds-button_icon iconheight" onclick={resetData}>
-                                        <lightning-icon class="slds-icon slds-icon slds-icon_small slds-icon-text-default" icon-name="utility:clear" size="x-small" alternative-text="icon" ></lightning-icon>
-                                        <span class="slds-assistive-text">Clear</span></button>
+									<button class="slds-input__icon slds-input__icon_right slds-button slds-button_icon iconheight"
+													onclick={resetData}>
+                          <lightning-icon class="slds-icon slds-icon slds-icon_small slds-icon-text-default" icon-name="utility:clear" size="x-small" alternative-text="icon" ></lightning-icon>
+                          <span class="slds-assistive-text">Clear</span>
+									</button>
 								</div>
 							</div>
 
@@ -46,15 +48,13 @@
 								<ul class="slds-listbox slds-listbox_vertical" role="presentation">
 									<template for:each={searchRecords} for:item="serecord">
 										<li role="presentation" class="slds-listbox__item" key={serecord.recId}>
-
-											<c-child label="hey there" record={serecord} object_name={objectName}
-												set_selected_record={setSelectedRecord}>
+											<c-child label="" record={serecord} object_name={objectName} onclick={setSelectedRecord}
+												data-id={serecord.recId} data-name={serecord.recName} data-random="who knows">
 											</c-child>
 										</li>
 									</template>
 								</ul>
 							</div>
-
 
 							<div if:true={messageFlag}>
 								No result found.
