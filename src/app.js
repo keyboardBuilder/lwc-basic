@@ -23,8 +23,10 @@ export default class LwcCustomLookup extends LightningElement {
         var currentText = event.target.value;
         this.LoadingText = true;
 
+        console.log('searchField: seach initiated');
         setTimeout(()=> {
             
+            console.log('searchField: setting searchRecords');
             this.searchRecords = [
                 {recName: 'number one', recId: '0', otherAttribute: 'hey'},
                 {recName: 'number two', recId: '1', otherAttribute: 'hey'},
